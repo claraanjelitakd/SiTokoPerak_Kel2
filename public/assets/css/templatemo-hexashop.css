@@ -1683,26 +1683,6 @@ Products Page
   margin: 0px 5px;
 }
 
-#products .pagination ul li a {
-  width: 44px;
-  height: 44px;
-  border: 1px solid #2a2a2a;
-  display: inline-block;
-  text-align: center;
-  line-height: 44px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #2a2a2a;
-}
-
-#products .pagination ul li a:hover,
-#products .pagination ul li.active a {
-  background-color: #2a2a2a;
-  color: #fff;
-}
-
-
-
 /* 
 ---------------------------------------------
 Single Product Page
