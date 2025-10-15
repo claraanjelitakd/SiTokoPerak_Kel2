@@ -1111,7 +1111,7 @@ div > .dropdown-menu {
 .kontak-list li i {
     width: 30px;
     text-align: center;
-    color: #C2272D; /* Warna ikon merah */
+    color: #C2272D; 
     margin-right: 10px;
     font-size: 16px;
 }
@@ -1126,7 +1126,7 @@ div > .dropdown-menu {
 .alamat-info i {
     width: 30px;
     text-align: center;
-    color: #C2272D; /* Warna ikon merah */
+    color: #C2272D; 
     margin-right: 10px;
     margin-top: 5px;
     font-size: 16px;
@@ -1136,10 +1136,74 @@ div > .dropdown-menu {
 .form-select-custom.filter-active,
 .btn-dropdown-custom.filter-active {
     border-color: #980808; /* Warna border merah */
-    box-shadow: 0 0 0 0.25rem rgba(194, 39, 45, 0.25); /* Efek glow merah */
+    box-shadow: 0 0 0 0.25rem rgba(194, 39, 45, 0.25); 
     color: #980808;
 }
 
+/* Kontainer utama paginasi */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 30px;
+}
+
+/* Setiap item di dalam paginasi */
+.pagination .page-item {
+    margin: 0 4px;
+}
+
+/* Link di dalam setiap item (tombolnya) */
+.pagination .page-link {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 14px;
+    font-weight: 600;
+    color: #616161;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px !important; 
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin: 0;
+}
+
+/* Efek saat kursor di atas tombol */
+.pagination .page-item:not(.active) .page-link:hover {
+    z-index: 2;
+    color: #000;
+    background-color: #f1f1f1;
+    border-color: #ccc;
+}
+
+/* Tombol halaman yang SEDANG AKTIF */
+.pagination .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #980808;
+    border-color: #980808;
+    box-shadow: 0 4px 8px rgba(194, 39, 45, 0.1);
+}
+
+/* Tombol yang nonaktif */
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+    opacity: 0.6;
+    margin: 0;
+}
+
+.pagination .text-muted{
+    margin-right: 30px;
+}
+
+.pagination .text-muted .fw-semibold{
+    font-weight: 600;
+}
 /* =========================================
    FOOTER BARU YANG RESPONSIF
    ========================================= */
@@ -1376,7 +1440,7 @@ div > .dropdown-menu {
     /* Products grid → 1 kolom */
     .col-lg-3,
     .col-md-6 {
-        width: 100% !important;
+        width: 50% !important;
     }
 
     /* Footer */
@@ -1407,5 +1471,21 @@ div > .dropdown-menu {
 
     .filter-group-custom {
         min-width: 100%;
+    }
+
+    .filter-row {
+        flex-direction: column; /* Ini akan menumpuk Kategori dan Harga ke bawah */
+        gap: 15px; /* Tetap beri jarak antar filter */
+    }
+
+    /* 2. Hapus batasan lebar maksimal dari setiap grup filter */
+    .filter-group-custom {
+        max-width: 100%; /* Izinkan filter untuk memenuhi lebar layar */
+        min-width: 100%; /* Pastikan juga lebarnya minimal 100% */
+    }
+
+    /* 3. (Opsional) Jika dropdown harga terlalu sempit */
+    .dropdown-menu-custom {
+        min-width: 100%; /* Pastikan dropdown harga memenuhi layar */
     }
 }

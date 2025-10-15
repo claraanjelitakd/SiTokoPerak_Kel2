@@ -21,7 +21,7 @@
                 <div class="input-group">
                     <input type="password" name="password" id="password" class="form-control" placeholder="masukkan kata Sandi" required />
                     <button type="button" class="btn btn-outline-secondary" id="togglePassword">
-                        <i class="fas fa-eye" id="toggleIcon"></i>
+                        <i class="fa fa-eye" id="toggleIcon"></i>
                     </button>
                 </div>
             </div>
@@ -53,7 +53,6 @@
 </div>
 @endsection
 
-{{-- 5. Menyisipkan JavaScript khusus untuk halaman ini --}}
 @push('scripts')
 <script>
     const togglePassword = document.getElementById('togglePassword');

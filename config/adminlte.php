@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>TekoPerakku<b>',
+    'logo' => '<b>ADMIN</b> TekoPerakku',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -190,13 +190,13 @@ return [
     |
     */
 
-    'classes_body' => '',
+    'classes_body' => 'custom-profile-layout',
     'classes_brand' => '',
     'classes_brand_text' => '',
     'classes_content_wrapper' => 'content-wrapper bg-light',
     'classes_content_header' => '',
     'classes_content' => 'content bg-light',
-    'classes_sidebar' => 'sidebar-dark-indigo elevation-4',
+    'classes_sidebar' => 'light',
     'classes_sidebar_nav' => 'nav-pills nav-sidebar flex-column',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -223,6 +223,7 @@ return [
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
     'sidebar_nav_animation_speed' => 300,
+    'sidebar_theme' => 'light',
 
     /*
     |--------------------------------------------------------------------------
@@ -238,7 +239,7 @@ return [
 
     'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
-    'right_sidebar_theme' => 'dark',
+    'right_sidebar_theme' => 'light',
     'right_sidebar_slide' => true,
     'right_sidebar_push' => true,
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
