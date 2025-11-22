@@ -23,5 +23,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Route::aliasMiddleware('role', RoleCheck::class); // <-- ini yang nambahin alias 'role'
         Paginator::useBootstrapFive();
+
+        // Load helper buat count cart
+        foreach (glob(app_path('Helpers/*.php')) as $filename) {
+            require_once $filename;
+        }
     }
 }

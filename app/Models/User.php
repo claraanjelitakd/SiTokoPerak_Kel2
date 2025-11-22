@@ -16,7 +16,19 @@ class User extends Authenticatable
         'email',
         'password',
         'role', // ➔ Tambahkan ini
+        'name',
+        'phone',
+        'address'
     ];
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+    public function isUser()
+    {
+        return $this->role === 'guest';
+    }
 
     protected $hidden = [
         'password',

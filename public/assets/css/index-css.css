@@ -6,6 +6,15 @@
     box-sizing: border-box;
 }
 
+
+.cart-badge {
+    top: -6px;
+    right: -12px;
+    font-size: 0.65rem;
+    padding: 3px 6px;
+}
+
+
 body {
     line-height: 1.6;
     color: #333;
@@ -27,8 +36,14 @@ body {
 }
 
 @keyframes jump {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1); }
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
 }
 
 /* Header Improvements */
@@ -96,8 +111,8 @@ header.shadow-sm.fixed-top {
     font-weight: 600;
 }
 
-.nav-item .nav-link:hover{
-  transform: translateY(-1px);
+.nav-item .nav-link:hover {
+    transform: translateY(-1px);
 }
 
 .nav-item .nav-link:hover:not(.dropdown-toggle)::after,
@@ -188,7 +203,7 @@ header.shadow-sm.fixed-top {
 }
 
 .banner-background::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -197,7 +212,6 @@ header.shadow-sm.fixed-top {
     background: #2913139b;
     z-index: 1;
 }
-
 
 /* Banner Content Text */
 .banner-content {
@@ -248,13 +262,18 @@ header.shadow-sm.fixed-top {
 }
 
 .banner-content .btn::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
     transition: left 0.5s;
 }
 
@@ -299,11 +318,11 @@ header.shadow-sm.fixed-top {
 }
 
 .section-heading h2::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100px;
     height: 4px;
-    background: #C4C4C4;
+    background: #c4c4c4;
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
@@ -337,11 +356,12 @@ header.shadow-sm.fixed-top {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     /* Filter untuk warna hitam */
-    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%)
+        contrast(100%);
 }
 
 .carousel-control-prev:hover,
-.carousel-control-next:hover{
+.carousel-control-next:hover {
     background-color: #eceef0;
 }
 
@@ -357,7 +377,7 @@ header.shadow-sm.fixed-top {
 }
 
 .category-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -430,7 +450,7 @@ header.shadow-sm.fixed-top {
 }
 
 .category-card .btn-outline-dark::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -463,7 +483,6 @@ header.shadow-sm.fixed-top {
     margin: 0 auto;
     padding: 0 15px;
 }
-
 
 /* Gaya untuk product card */
 .product-item {
@@ -523,7 +542,7 @@ header.shadow-sm.fixed-top {
 
 .product-item .down-content .product-price {
     font-size: 14px; /* Ukuran font harga */
-    color: #5C5F6A;
+    color: #5c5f6a;
     display: block;
     margin-bottom: 10px;
 }
@@ -551,7 +570,7 @@ header.shadow-sm.fixed-top {
 
 .pengrajins-section {
     padding: 80px 0;
-    background-color: #fff; 
+    background-color: #fff;
 }
 
 /* Styling untuk setiap kartu pengrajin */
@@ -576,13 +595,13 @@ header.shadow-sm.fixed-top {
 .pengrajin-thumb img {
     width: 100%;
     max-height: 250px;
-    aspect-ratio: 1 / 1; 
+    aspect-ratio: 1 / 1;
     object-fit: cover;
 }
 
 /* Info di bawah gambar */
 .pengrajin-info {
-    padding: 20px 10px ;
+    padding: 20px 10px;
 }
 
 .pengrajin-name {
@@ -615,7 +634,7 @@ header.shadow-sm.fixed-top {
 }
 
 .see-all-button::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -715,13 +734,18 @@ header.shadow-sm.fixed-top {
 
 /* Efek kilauan (shimmer) yang bergerak */
 .about-btn::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%; /* Mulai dari luar tombol di sebelah kiri */
     width: 30%; /* Lebar kilauan */
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
     transition: left 0.5s ease; /* Transisi untuk pergerakan kilauan */
     z-index: 2; /* Pastikan kilauan di atas background tombol */
 }
@@ -736,7 +760,6 @@ header.shadow-sm.fixed-top {
 .about-btn:hover::before {
     left: 100%;
 }
-
 
 @keyframes slideInRight {
     0% {
@@ -781,7 +804,6 @@ header.shadow-sm.fixed-top {
     flex-basis: 100%; /* Baris ini mengambil seluruh lebar */
     gap: 15px;
 }
-
 
 /* Aturan untuk filter 'Urut Berdasarkan' agar tetap di baris baru */
 .filters-wrapper > .filter-group-custom {
@@ -828,9 +850,9 @@ header.shadow-sm.fixed-top {
     background-color: white;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-align: left; 
+    text-align: left;
     background-image: none;
-    
+
     position: relative; /* Diperlukan untuk panah kustom */
 }
 
@@ -899,13 +921,13 @@ div > .dropdown-menu {
 }
 
 .dropdown-menu-custom {
-    min-width: 320px; 
-    width: auto; 
+    min-width: 320px;
+    width: auto;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Bisa disesuaikan lagi */
     margin-top: 5px;
-    padding: 20px; 
+    padding: 20px;
 }
 
 /* Container untuk form harga baru */
@@ -918,8 +940,8 @@ div > .dropdown-menu {
 /* Wrapper untuk input Min, -, Maks */
 .price-inputs-wrapper {
     display: flex;
-    align-items: flex-end; 
-    gap: 8px; 
+    align-items: flex-end;
+    gap: 8px;
 }
 
 /* Grup input baru (Min/Maks) */
@@ -933,7 +955,7 @@ div > .dropdown-menu {
 /* Label baru untuk Min/Maks */
 .price-label-new {
     font-size: 14px;
-    font-weight: 500; 
+    font-weight: 500;
     color: #333;
     margin: 0;
     padding: 0;
@@ -980,7 +1002,7 @@ div > .dropdown-menu {
     transition: all 0.3s ease;
     cursor: pointer;
     margin-top: 4px;
-    flex: 2
+    flex: 2;
 }
 
 .btn-apply-new:hover {
@@ -1002,9 +1024,9 @@ div > .dropdown-menu {
 
 .btn-reset-new {
     flex: 1; /* Lebar tombol Reset */
-    background-color: #FFFFFF;
-    color: #6c757d; 
-    border: 1px solid #dee2e6; 
+    background-color: #ffffff;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
     padding: 6px;
     font-weight: 500;
     font-size: 14px;
@@ -1081,7 +1103,8 @@ div > .dropdown-menu {
     margin-bottom: 5px;
 }
 
-.spesialisasi, .keahlian {
+.spesialisasi,
+.keahlian {
     font-size: 15px;
     color: #888;
     line-height: 1.6;
@@ -1111,7 +1134,7 @@ div > .dropdown-menu {
 .kontak-list li i {
     width: 30px;
     text-align: center;
-    color: #C2272D; 
+    color: #c2272d;
     margin-right: 10px;
     font-size: 16px;
 }
@@ -1126,7 +1149,7 @@ div > .dropdown-menu {
 .alamat-info i {
     width: 30px;
     text-align: center;
-    color: #C2272D; 
+    color: #c2272d;
     margin-right: 10px;
     margin-top: 5px;
     font-size: 16px;
@@ -1136,7 +1159,7 @@ div > .dropdown-menu {
 .form-select-custom.filter-active,
 .btn-dropdown-custom.filter-active {
     border-color: #980808; /* Warna border merah */
-    box-shadow: 0 0 0 0.25rem rgba(194, 39, 45, 0.25); 
+    box-shadow: 0 0 0 0.25rem rgba(194, 39, 45, 0.25);
     color: #980808;
 }
 
@@ -1164,7 +1187,7 @@ div > .dropdown-menu {
     color: #616161;
     background-color: #fff;
     border: none;
-    border-radius: 8px !important; 
+    border-radius: 8px !important;
     transition: all 0.3s ease;
     text-decoration: none;
     margin: 0;
@@ -1197,11 +1220,11 @@ div > .dropdown-menu {
     margin: 0;
 }
 
-.pagination .text-muted{
+.pagination .text-muted {
     margin-right: 30px;
 }
 
-.pagination .text-muted .fw-semibold{
+.pagination .text-muted .fw-semibold {
     font-weight: 600;
 }
 /* =========================================
@@ -1280,7 +1303,6 @@ div > .dropdown-menu {
 
 /* Tablet (max-width: 992px) */
 @media (max-width: 992px) {
-
     /* Navbar Search */
     .navbar .form-control {
         width: 90%;
@@ -1293,10 +1315,10 @@ div > .dropdown-menu {
         padding-bottom: 0;
     }
 
-    .d-flex div a{
+    .d-flex div a {
         font-size: 14px;
     }
-    .navbar-brand{
+    .navbar-brand {
         font-size: 20px;
     }
 
@@ -1312,7 +1334,7 @@ div > .dropdown-menu {
         top: auto;
         transform: none;
         max-width: 100%;
-        text-align:justify;
+        text-align: justify;
         margin: 0 auto;
     }
 
@@ -1364,7 +1386,6 @@ div > .dropdown-menu {
         gap: 15px;
     }
 
-
     /* Aturan untuk filter 'Urut Berdasarkan' agar tetap di baris baru */
     .filters-wrapper > .filter-group-custom {
         flex-basis: 100%; /* Pastikan filter di luar .filter-row memulai baris baru */
@@ -1378,7 +1399,7 @@ div > .dropdown-menu {
 /* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
     .content {
-        padding-top: 0px; 
+        padding-top: 0px;
     }
 
     .d-flex a {
@@ -1404,16 +1425,16 @@ div > .dropdown-menu {
         font-size: 12px;
     }
 
-    .navbar-brand{
+    .navbar-brand {
         font-size: 14px;
         margin: 0;
     }
 
-    .d-flex div a{
+    .d-flex div a {
         font-size: 12px;
     }
 
-    .dropdown-item{
+    .dropdown-item {
         font-size: 14px;
     }
 
@@ -1458,7 +1479,7 @@ div > .dropdown-menu {
         margin: 0 10px;
     }
 
-     /* Nav Item */
+    /* Nav Item */
     .nav-item .nav-link {
         margin: 5px 8px;
         font-size: 10px;

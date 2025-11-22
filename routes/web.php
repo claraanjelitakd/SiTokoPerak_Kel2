@@ -16,10 +16,23 @@ use App\Http\Controllers\Admin\UsahaJenisController;
 use App\Http\Controllers\Admin\UsahaProdukController;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\Admin\ExportController;
+use App\Http\Controllers\Guest\CartController;
 
 // Authentication Routes
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('loginForm');
 Route::post('login', [AuthController::class, 'login'])->name('login');
+
+// Registrasi Customer
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+
+//cart detail
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{slug}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 //Guest
 Route::get('', [PageController::class, 'index'])->name('guest-index');
@@ -33,8 +46,11 @@ Route::get('produk/kategori/{slug}', [PageController::class, 'productsByCategory
 Route::get('produk/{slug}', [PageController::class, 'singleProduct'])->name('guest-singleProduct');
 
 
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+
 Route::middleware(['role:admin'])->group(function () {
-    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
     Route::get('admin/profile', [AuthController::class, 'profile'])->name('profile');
     Route::get('admin/change-password', [AuthController::class, 'changePassword'])->name('change-password');
     Route::post('update-password', [AuthController::class, 'updatePassword'])->name('update-password');

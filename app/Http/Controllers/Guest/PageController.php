@@ -38,12 +38,12 @@ class PageController extends Controller
         // -- LOGIKA PENCARIAN (SEARCH) --
         if ($request->filled('search')) {
             $searchTerm = $request->search;
-            $query->where(function($q) use ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
                 $q->where('nama_produk', 'like', '%' . $searchTerm . '%')
-                ->orWhere('deskripsi', 'like', '%' . $searchTerm . '%')
-                ->orWhereHas('kategoriProduk', function($kategoriQuery) use ($searchTerm) {
-                    $kategoriQuery->where('nama_kategori_produk', 'like', '%' . $searchTerm . '%');
-                });
+                    ->orWhere('deskripsi', 'like', '%' . $searchTerm . '%')
+                    ->orWhereHas('kategoriProduk', function ($kategoriQuery) use ($searchTerm) {
+                        $kategoriQuery->where('nama_kategori_produk', 'like', '%' . $searchTerm . '%');
+                    });
             });
         }
 
@@ -51,6 +51,14 @@ class PageController extends Controller
         if ($request->filled('kategori')) {
             $query->whereHas('kategoriProduk', function ($q) use ($request) {
                 $q->where('slug', $request->kategori);
+            });
+        }
+
+        // -- LOGIKA FILTER USAHA (Toko) --
+        if ($request->filled('usaha')) {
+            $query->whereHas('usahaProduk.usaha', function ($q) use ($request) {
+                $q->where('id', $request->usaha)
+                    ->where('status_usaha', 'aktif'); // hanya toko aktif
             });
         }
 
@@ -63,7 +71,7 @@ class PageController extends Controller
         }
 
         // -- LOGIKA PENGURUTAN (SORT) --
-        $urutkan = $request->input('urutkan', 'terbaru'); 
+        $urutkan = $request->input('urutkan', 'terbaru');
         switch ($urutkan) {
             case 'harga-rendah':
                 $query->orderBy('harga', 'asc');
@@ -89,7 +97,7 @@ class PageController extends Controller
     public function singleProduct($slug)
     {
         $produk = Produk::where('slug', $slug)->firstOrFail();
-        return view('guest.pages.single-product',[
+        return view('guest.pages.single-product', [
             'produk' => $produk,
         ]);
     }
@@ -102,11 +110,11 @@ class PageController extends Controller
         if ($request->has('from_product')) {
             $previousProduct = Produk::where('slug', $request->from_product)->first();
         }
-            
+
         return view('guest.pages.detail-usaha', [
             'usaha' => $usaha,
             'produks' => $usaha->produks,
-            'previousProduct' => $previousProduct, 
+            'previousProduct' => $previousProduct,
         ]);
     }
 
