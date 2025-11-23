@@ -94,7 +94,6 @@ Route::middleware("auth")->group(function () {
     ])->name("checkout.success");
 });
 
-<<<<<<< HEAD
 //Checkout
 Route::middleware('auth')->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
@@ -115,7 +114,7 @@ Route::middleware('auth')->name('customer.')->group(function () {
     Route::patch('/customer/profile', [CustomerDashboardController::class, 'updateProfile'])
         ->name('profile.update');
 });
-=======
+
 //buat Dashboard customer
 Route::middleware("auth")
     ->name("customer.")
@@ -136,7 +135,6 @@ Route::middleware("auth")
             "updateProfile",
         ])->name("profile.update");
     });
->>>>>>> hans
 
 Route::middleware(["role:admin"])->group(function () {
     Route::get("admin/profile", [AuthController::class, "profile"])->name(
