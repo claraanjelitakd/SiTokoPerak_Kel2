@@ -20,6 +20,8 @@ use App\Http\Controllers\Guest\CartController;
 use App\Http\Controllers\Guest\CheckoutController;
 use App\Http\Controllers\Guest\CustomerDashboardController;
 use App\Http\Controllers\Guest\ReviewController;
+use App\Http\Controllers\Admin\LaporanUsahaController;
+
 
 // Authentication Routes
 Route::get("login", [AuthController::class, "showLoginForm"])->name(
@@ -381,6 +383,52 @@ Route::middleware(["role:admin"])->group(function () {
         UsahaProdukController::class,
         "destroy",
     ])->name("admin.usaha_produk-destroy");
+
+    // ==================================================================
+    // ==========  ADMIN: LAPORAN USAHA  ================================
+    // ==================================================================
+    // Halaman utama Dashboard Laporan
+    Route::middleware(['web', 'role:admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        // DASHBOARD LAPORAN USAHA
+        Route::get('/laporan-usaha', [LaporanUsahaController::class, 'index'])
+            ->name('laporan.index'); // -> admin.laporan.index
+
+        // TRANSAKSI
+        Route::get('/laporan-usaha/transaksi', [LaporanUsahaController::class, 'transaksi'])
+            ->name('laporan.transaksi'); // -> admin.laporan.transaksi
+
+        // PENDAPATAN USAHA
+        Route::get('/laporan-usaha/pendapatan-usaha', [LaporanUsahaController::class, 'pendapatan_usaha'])
+            ->name('laporan.pendapatan-usaha'); // -> admin.laporan.pendapatan-usaha
+
+        // PRODUK TERLARIS
+        Route::get('/laporan-usaha/produk-terlaris', [LaporanUsahaController::class, 'produk_terlaris'])
+            ->name('laporan.produk-terlaris'); // -> admin.laporan.produk-terlaris
+
+        // PRODUK SLOW MOVING
+        Route::get('/laporan-usaha/produk-slow-moving', [LaporanUsahaController::class, 'produk_slow_moving'])
+            ->name('laporan.produk-slow-moving'); // -> admin.laporan.produk-slow-moving
+
+        // TRANSAKSI USER
+        Route::get('/laporan-usaha/transaksi-user', [LaporanUsahaController::class, 'transaksi_user'])
+            ->name('laporan.transaksi-user'); // -> admin.laporan.transaksi-user
+
+        // KATEGORI PRODUK
+        Route::get('/laporan-usaha/kategori-produk', [LaporanUsahaController::class, 'kategori_produk'])
+            ->name('laporan.kategori-produk'); // -> admin.laporan.kategori-produk
+
+        // PRODUK FAVORITE
+        Route::get('/laporan-usaha/produk-favorite', [LaporanUsahaController::class, 'produk_favorite'])
+            ->name('laporan.produk-favorite'); // -> admin.laporan.produk-favorite
+
+        // PRODUK VIEWS
+        Route::get('/laporan-usaha/produk-views', [LaporanUsahaController::class, 'produk_views'])
+            ->name('laporan.produk-views'); // -> admin.laporan.produk-views
+    });
 
     // Export Pengerajin
     Route::get("admin/export-data", [ExportController::class, "index"])->name(

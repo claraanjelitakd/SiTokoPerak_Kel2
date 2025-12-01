@@ -477,6 +477,11 @@ return [
             'icon' => 'fas fa-briefcase', // ikon untuk usaha/pekerjaan
         ],
         [
+            'text' => 'Laporan Usaha',
+            'url'  => 'admin/laporan-usaha',   // <─ pakai nama route, bukan url string
+            'icon' => 'fas fa-file-export',
+        ],
+        [
             'text' => 'Export Data',
             'url' => 'admin/export-data',
             'icon' => 'fas fa-file-export', // ikon untuk ekspor data

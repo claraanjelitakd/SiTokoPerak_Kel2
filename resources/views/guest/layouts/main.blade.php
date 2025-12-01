@@ -197,9 +197,6 @@
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
-    {{-- DEBUG --}}
-    <pre>{{ json_encode(session()->all(), JSON_PRETTY_PRINT) }}</pre>
 
 
 
