@@ -403,11 +403,11 @@ Route::middleware(["role:admin"])->group(function () {
 
         // PENDAPATAN USAHA
         Route::get('/laporan-usaha/pendapatan-usaha', [LaporanUsahaController::class, 'pendapatan_usaha'])
-            ->name('laporan.pendapatan-usaha'); // -> admin.laporan.pendapatan-usaha
+            ->name('laporan.pendapatan_usaha'); // -> admin.laporan.pendapatan-usaha
 
         // PRODUK TERLARIS
         Route::get('/laporan-usaha/produk-terlaris', [LaporanUsahaController::class, 'produk_terlaris'])
-            ->name('laporan.produk-terlaris'); // -> admin.laporan.produk-terlaris
+            ->name('laporan.produk_terlaris'); // -> admin.laporan.produk-terlaris
 
         // PRODUK SLOW MOVING
         Route::get('/laporan-usaha/produk-slow-moving', [LaporanUsahaController::class, 'produk_slow_moving'])
