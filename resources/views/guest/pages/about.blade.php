@@ -57,7 +57,7 @@
         <div class="text-center">
             <h3 class="mb-4">Video Kerajinan Perak Kotagede</h3>
             <div style="width: 100%; height: 600px;">
-                <iframe src="https://www.youtube.com/embed/3j4Rf2ojD5Q?si=zMVk1BvKMzdQy7iO" title="YouTube video player" 
+                <iframe src="https://www.youtube.com/embed/3j4Rf2ojD5Q?si=zMVk1BvKMzdQy7iO" title="YouTube video player"
                     width="70%" height="100%" style="border:0;" allowfullscreen>
                 </iframe>
             </div>
