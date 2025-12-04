@@ -92,21 +92,21 @@
 @section('content')
 
 <div class="report-nav">
-    <a href="{{ route('admin.laporan.index') }}" class="active">📌 Dashboard Laporan</a>
-    <a href="{{ route('admin.laporan.transaksi') }}">📄 Semua Transaksi</a>
-    <a href="{{ route('admin.laporan.pendapatan_usaha') }}">💰 Pendapatan Per Usaha</a>
-    <a href="{{ route('admin.laporan.produk_terlaris') }}">🔥 Produk Terlaris</a>
-    <a href="{{ route('admin.laporan.produk-slow-moving') }}">🐌 Produk Slow Moving</a>
-    <a href="{{ route('admin.laporan.transaksi-user') }}">👥 Transaksi Per User</a>
-    <a href="{{ route('admin.laporan.kategori-produk') }}">📦 Kategori Produk</a>
-    <a href="{{ route('admin.laporan.produk-favorite') }}">❤️ Produk Favorite</a>
-    <a href="{{ route('admin.laporan.produk-views') }}">👁️ Produk Dilihat</a>
+    <a href="{{ route('admin.laporan_usaha.index') }}" class="active">📌 Dashboard Laporan</a>
+    <a href="{{ route('admin.laporan_usaha.transaksi') }}">📄 Semua Transaksi</a>
+    <a href="{{ route('admin.laporan_usaha.pendapatan_usaha') }}">💰 Pendapatan Per Usaha</a>
+    <a href="{{ route('admin.laporan_usaha.produk_terlaris') }}">🔥 Produk Terlaris</a>
+    <a href="{{ route('admin.laporan_usaha.produk-slow-moving') }}">🐌 Produk Slow Moving</a>
+    <a href="{{ route('admin.laporan_usaha.transaksi-user') }}">👥 Transaksi Per User</a>
+    <a href="{{ route('admin.laporan_usaha.kategori-produk') }}">📦 Kategori Produk</a>
+    <a href="{{ route('admin.laporan_usaha.produk-favorite') }}">❤️ Produk Favorite</a>
+    <a href="{{ route('admin.laporan_usaha.produk-views') }}">👁️ Produk Dilihat</a>
 </div>
 
 
     {{-- FILTER GLOBAL + EXPORT --}}
     <div class="card-modern">
-        <form method="GET" action="{{ route('admin.laporan.index') }}">
+        <form method="GET" action="{{ route('admin.laporan_usaha.index') }}">
             <div class="row">
                 <div class="form-group col-md-2 col-sm-6">
                     <label style="color:#b8ccdf;">Tahun</label>
@@ -177,7 +177,7 @@
                     <button type="submit" class="btn btn-primary btn-block mb-2">
                         <i class="fa fa-filter"></i> Terapkan
                     </button>
-                    <a href="{{ route('admin.laporan.index') }}" class="btn btn-secondary btn-block mb-2">
+                    <a href="{{ route('admin.laporan_usaha.index') }}" class="btn btn-secondary btn-block mb-2">
                         <i class="fa fa-sync-alt"></i> Reset
                     </a>
                     {{-- <a href="{{ route('admin.laporan.export.pdf', request()->all()) }}"

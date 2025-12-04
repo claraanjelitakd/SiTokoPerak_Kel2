@@ -124,7 +124,7 @@
     {{-- 🔍 FILTER TANGGAL + USAHA --}}
     <div class="card-modern mb-3">
         <div class="card-body">
-            <form method="GET" action="{{ route('admin.laporan.produkFavorite') }}">
+            <form method="GET" action="{{ route('admin.laporan_usaha.produk-favorite') }}">
                 <div class="row">
                     {{-- Usaha --}}
                     <div class="form-group col-md-3 col-sm-6">
@@ -157,7 +157,7 @@
                         <button type="submit" class="btn btn-primary btn-block mb-2">
                             <i class="fa fa-filter"></i> Terapkan
                         </button>
-                        <a href="{{ route('admin.laporan.produkFavorite') }}" class="btn btn-secondary btn-block">
+                        <a href="{{ route('admin.laporan_usaha.produk-favorite') }}" class="btn btn-secondary btn-block">
                             <i class="fa fa-sync-alt"></i> Reset
                         </a>
                     </div>

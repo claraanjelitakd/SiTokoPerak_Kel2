@@ -127,7 +127,7 @@
     {{-- FILTER USAHA + KATEGORI + TANGGAL --}}
     <div class="card-modern mb-3">
         <div class="card-body">
-            <form method="GET" action="{{ route('admin.laporan.transaksiUser') }}">
+            <form method="GET" action="{{ route('admin.laporan_usaha.transaksi-user') }}">
                 <div class="row">
 
                     {{-- Usaha --}}
@@ -177,7 +177,7 @@
                         <button type="submit" class="btn btn-primary btn-block mb-2">
                             <i class="fa fa-filter"></i> Terapkan
                         </button>
-                        <a href="{{ route('admin.laporan.transaksiUser') }}" class="btn btn-secondary btn-block">
+                        <a href="{{ route('admin.laporan_usaha.transaksi-user') }}" class="btn btn-secondary btn-block">
                             <i class="fa fa-sync-alt"></i> Reset
                         </a>
                     </div>

@@ -88,7 +88,7 @@
     {{-- 🔍 FILTER --}}
     <div class="card card-modern mb-3">
         <div class="card-body">
-            <form method="GET" action="{{ route('admin.laporan.produkViews') }}">
+            <form method="GET" action="{{ route('admin.laporan_usaha.produk-views') }}">
                 <div class="form-row">
 
                     {{-- Usaha --}}
@@ -122,7 +122,7 @@
                         <button type="submit" class="btn btn-primary btn-block mb-2">
                             <i class="fa fa-filter"></i> Terapkan
                         </button>
-                        <a href="{{ route('admin.laporan.produkViews') }}" class="btn btn-secondary btn-block">
+                        <a href="{{ route('admin.laporan_usaha.produk-views') }}" class="btn btn-secondary btn-block">
                             <i class="fa fa-sync-alt"></i> Reset
                         </a>
                     </div>

@@ -119,7 +119,7 @@
     {{-- 🔍 FILTER: Usaha, Kategori, User, Status, Tanggal --}}
     <div class="card-modern mb-3">
         <div class="card-body">
-            <form method="GET" action="{{ route('admin.laporan.transaksi') }}">
+            <form method="GET" action="{{ route('admin.laporan_usaha.transaksi') }}">
                 <div class="row">
 
                     {{-- Usaha --}}

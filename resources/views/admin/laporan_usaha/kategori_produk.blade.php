@@ -89,7 +89,7 @@
     {{-- FILTER --}}
     <div class="card card-modern mb-3">
         <div class="card-body">
-            <form method="GET" action="{{ route('admin.laporan.kategoriProduk') }}">
+            <form method="GET" action="{{ route('admin.laporan_usaha.kategori-produk') }}">
                 <div class="form-row">
                     <div class="form-group col-md-3 col-sm-6">
                         <label style="color:#b8ccdf;">Usaha</label>
@@ -118,7 +118,7 @@
                         <button type="submit" class="btn btn-primary btn-block mb-2">
                             <i class="fa fa-filter"></i> Terapkan
                         </button>
-                        <a href="{{ route('admin.laporan.kategoriProduk') }}" class="btn btn-secondary btn-block">
+                        <a href="{{ route('admin.laporan_usaha.kategori-produk') }}" class="btn btn-secondary btn-block">
                             <i class="fa fa-sync-alt"></i> Reset
                         </a>
                     </div>
