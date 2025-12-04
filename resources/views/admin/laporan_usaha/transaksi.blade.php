@@ -195,7 +195,7 @@
                         <button type="submit" class="btn btn-primary btn-block mb-2">
                             <i class="fa fa-filter"></i> Terapkan
                         </button>
-                        <a href="{{ route('admin.laporan.transaksi') }}" class="btn btn-secondary btn-block">
+                        <a href="{{ route('admin.laporan_usaha.transaksi') }}" class="btn btn-secondary btn-block">
                             <i class="fa fa-sync-alt"></i> Reset
                         </a>
                     </div>
