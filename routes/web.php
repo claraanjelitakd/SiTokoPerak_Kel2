@@ -388,72 +388,68 @@ Route::middleware(["role:admin"])->group(function () {
         "destroy",
     ])->name("admin.usaha_produk-destroy");
 
-    // ==================================================================
-// ==========  ADMIN: LAPORAN USAHA  ================================
-// ==================================================================
 
-    // Semua route laporan ini otomatis pakai middleware role:admin
-// karena sudah DI DALAM group Route::middleware(['role:admin'])->group(...)
-    Route::prefix('admin/laporan-usaha')
-        ->name('admin.laporan_usaha.')
-        ->group(function () {
+Route::prefix('admin/laporan-usaha')
+    ->name('admin.laporan_usaha.')
+    // ->middleware(['auth', 'is_admin']) // kalau kamu pakai middleware admin, tambahkan di sini
+    ->group(function () {
 
-            // Dashboard Laporan
-            // URL  : /admin/laporan-usaha
-            // Name : admin.laporan.index
-            Route::get('/', [LaporanUsahaController::class, 'index'])
-                ->name('index');
+        // Dashboard laporan utama
+        Route::get('/', [LaporanUsahaController::class, 'index'])
+            ->name('index');
 
-            // Semua Transaksi
-            // URL  : /admin/laporan-usaha/transaksi
-            // Name : admin.laporan.transaksi
-            Route::get('/transaksi', [LaporanUsahaController::class, 'transaksi'])
-                ->name('transaksi');
+        // Kategori Produk
+        Route::get('/kategori-produk', [LaporanUsahaController::class, 'kategoriProduk'])
+            ->name('kategori-produk');
+        Route::get('/kategori-produk/export', [LaporanUsahaController::class, 'exportKategoriProduk'])
+            ->name('kategori-produk.export');
 
-            // Pendapatan per Usaha
-            // URL  : /admin/laporan-usaha/pendapatan-usaha
-            // Name : admin.laporan.pendapatan_usaha
-            Route::get('/pendapatan-usaha', [LaporanUsahaController::class, 'pendapatanUsaha'])
-                ->name('pendapatan_usaha');
+        // Pendapatan Usaha
+        Route::get('/pendapatan-usaha', [LaporanUsahaController::class, 'pendapatanUsaha'])
+            ->name('pendapatan-usaha');
+        Route::get('/pendapatan-usaha/export', [LaporanUsahaController::class, 'exportPendapatanUsaha'])
+            ->name('pendapatan-usaha.export');
 
-            // Produk Terlaris
-            // URL  : /admin/laporan-usaha/produk-terlaris
-            // Name : admin.laporan.produk_terlaris
-            Route::get('/produk-terlaris', [LaporanUsahaController::class, 'produkTerlaris'])
-                ->name('produk_terlaris');
+        // Produk Favorite
+        Route::get('/produk-favorite', [LaporanUsahaController::class, 'produkFavorite'])
+            ->name('produk-favorite');
+        Route::get('/produk-favorite/export', [LaporanUsahaController::class, 'exportProdukFavorite'])
+            ->name('produk-favorite.export');
 
-            // Produk Slow Moving
-            // URL  : /admin/laporan-usaha/produk-slow-moving
-            // Name : admin.laporan.produk-slow-moving
-            Route::get('/produk-slow-moving', [LaporanUsahaController::class, 'produkSlowMoving'])
-                ->name('produk-slow-moving');
+        // Produk Slow Moving
+        Route::get('/produk-slow-moving', [LaporanUsahaController::class, 'produkSlowMoving'])
+            ->name('produk-slow-moving');
+        Route::get('/produk-slow-moving/export', [LaporanUsahaController::class, 'exportProdukSlowMoving'])
+            ->name('produk-slow-moving.export');
 
-            // Transaksi per User
-            // URL  : /admin/laporan-usaha/transaksi-user
-            // Name : admin.laporan.transaksi-user
-            Route::get('/transaksi-user', [LaporanUsahaController::class, 'transaksiUser'])
-                ->name('transaksi-user');
+        // Produk Terlaris
+        Route::get('/produk-terlaris', [LaporanUsahaController::class, 'produkTerlaris'])
+            ->name('produk_terlaris');
+        Route::get('/produk-terlaris/export', [LaporanUsahaController::class, 'exportProdukTerlaris'])
+            ->name('produk-terlaris.export');
 
-            // Kategori Produk
-            // URL  : /admin/laporan-usaha/kategori-produk
-            // Name : admin.laporan.kategori-produk
-            Route::get('/kategori-produk', [LaporanUsahaController::class, 'kategoriProduk'])
-                ->name('kategori-produk');
+        // Produk Views
+        Route::get('/produk-views', [LaporanUsahaController::class, 'produkViews'])
+            ->name('produk-views');
+        Route::get('/produk-views/export', [LaporanUsahaController::class, 'exportProdukViews'])
+            ->name('produk-views.export');
 
-            // Produk Favorite
-            // URL  : /admin/laporan-usaha/produk-favorite
-            // Name : admin.laporan.produk-favorite
-            Route::get('/produk-favorite', [LaporanUsahaController::class, 'produkFavorite'])
-                ->name('produk-favorite');
+        // Transaksi per User
+        Route::get('/transaksi-user', [LaporanUsahaController::class, 'transaksiUser'])
+            ->name('transaksi-user');
+        Route::get('/transaksi-user/export', [LaporanUsahaController::class, 'exportTransaksiUser'])
+            ->name('transaksi-user.export');
 
-            // Produk Views
-            // URL  : /admin/laporan-usaha/produk-views
-            // Name : admin.laporan.produk-views
-            Route::get('/produk-views', [LaporanUsahaController::class, 'produkViews'])
-                ->name('produk-views');
-        });
+        // Semua Transaksi
+        Route::get('/transaksi', [LaporanUsahaController::class, 'transaksi'])
+            ->name('transaksi');
+        Route::get('/transaksi/export', [LaporanUsahaController::class, 'exportTransaksi'])
+            ->name('transaksi.export');
 
-    // Export Pengerajin
+        // // Export Pengerajin
+        // Route::get('/pengerajin/export', [LaporanUsahaController::class, 'exportPengerajin'])
+        //     ->name('pengerajin.export');
+    });
     Route::get("admin/export-data", [ExportController::class, "index"])->name(
         "admin.export-data",
     );

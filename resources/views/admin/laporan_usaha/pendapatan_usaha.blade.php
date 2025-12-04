@@ -1,5 +1,6 @@
 @extends('adminlte::page')
 
+
 @section('title', 'Pendapatan Usaha')
 
 @section('css')
@@ -7,6 +8,7 @@
         body {
             background: #0b1d39 !important;
         }
+
         .card-modern {
             background: #102544 !important;
             border-radius: 14px !important;
@@ -14,12 +16,14 @@
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.35);
             color: #e8eef7;
         }
+
         .report-nav {
             background: #0f233f;
             border-radius: 12px;
             padding: 14px;
             margin-bottom: 18px;
         }
+
         .report-nav a {
             display: block;
             padding: 10px 14px;
@@ -30,52 +34,64 @@
             text-decoration: none;
             transition: 0.2s;
         }
+
         .report-nav a:hover,
         .report-nav a.active {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
             font-weight: 600;
         }
-        .form-control, .btn {
+
+        .form-control,
+        .btn {
             border-radius: 8px !important;
         }
+
         .form-control {
             background-color: #0b1d39;
             color: #e8eef7;
-            border-color: rgba(255,255,255,0.1);
+            border-color: rgba(255, 255, 255, 0.1);
         }
+
         .metric-label {
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: .06em;
             opacity: .75;
         }
+
         .metric-value {
             font-size: 22px;
             font-weight: 700;
             margin-top: 4px;
         }
+
         .badge-soft {
             background: rgba(90, 177, 247, 0.12);
             border: 1px solid rgba(90, 177, 247, 0.4);
             color: #5ab1f7;
         }
+
         .table-dark-custom {
             background-color: #0f223f;
             color: #e8eef7;
         }
+
         .table-dark-custom thead tr {
             background-color: #081327;
         }
+
         .table-dark-custom tbody tr:hover {
-            background-color: rgba(255,255,255,0.04);
+            background-color: rgba(255, 255, 255, 0.04);
         }
+
         .toggle-pill {
             display: inline-flex;
             background: #0b1d39;
             border-radius: 999px;
             padding: 2px;
         }
+
         .toggle-pill button {
             border: none;
             background: transparent;
@@ -87,11 +103,13 @@
             cursor: pointer;
             transition: all .18s ease;
         }
+
         .toggle-pill button.active {
             background: #1f3f72;
             color: #ffffff;
             font-weight: 600;
         }
+
         #pendapatanUsahaChart {
             max-height: 380px;
         }
@@ -106,7 +124,7 @@
     {{-- 🔍 FILTER --}}
     <div class="card-modern mb-3">
         <div class="card-body">
-            <form method="GET" action="{{ route('admin.laporan_usaha.pendapatan_usaha') }}">
+            <form method="GET" action="{{ route('admin.laporan_usaha.pendapatan-usaha') }}">
                 <div class="row">
                     <div class="form-group col-md-3 col-sm-6">
                         <label style="color:#b8ccdf;">Usaha</label>
@@ -136,30 +154,37 @@
 
                     <div class="form-group col-md-3 col-sm-6">
                         <label style="color:#b8ccdf;">Tanggal Mulai</label>
-                        <input type="date" name="start_date" class="form-control"
-                               value="{{ request('start_date') }}">
+                        <input type="date" name="start_date" class="form-control" value="{{ request('start_date') }}">
                     </div>
 
                     <div class="form-group col-md-3 col-sm-6">
                         <label style="color:#b8ccdf;">Tanggal Akhir</label>
-                        <input type="date" name="end_date" class="form-control"
-                               value="{{ request('end_date') }}">
+                        <input type="date" name="end_date" class="form-control" value="{{ request('end_date') }}">
                     </div>
                 </div>
+
+                {{-- ✅ Tambah filter periode --}}
+                @include('admin.laporan_usaha.partials.filter_periode')
 
                 <div class="row mt-2">
                     <div class="form-group col-md-3 col-sm-6" style="margin-top: 4px;">
                         <button type="submit" class="btn btn-primary btn-block mb-2">
                             <i class="fa fa-filter"></i> Terapkan
                         </button>
-                        <a href="{{ route('admin.laporan_usaha.pendapatan_usaha') }}" class="btn btn-secondary btn-block">
+                        <a href="{{ route('admin.laporan_usaha.pendapatan-usaha') }}" class="btn btn-secondary btn-block">
                             <i class="fa fa-sync-alt"></i> Reset
+                        </a>
+
+                        <a href="{{ route('admin.laporan_usaha.pendapatan-usaha.export', request()->query()) }}"
+                            class="btn btn-success btn-block mt-2">
+                            <i class="fa fa-file-excel"></i> Export Excel
                         </a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
 
     {{-- 📊 RINGKASAN --}}
     <div class="row mb-3">
@@ -281,7 +306,7 @@
 
         </div>
 
-        @if(($laporan ?? collect())->count() > 0)
+        @if (($laporan ?? collect())->count() > 0)
             <div class="card-footer" style="font-size: 12px; opacity:.75;">
                 <i class="fa fa-info-circle"></i>
                 Usaha dengan <strong>total penjualan tertinggi</strong> bisa menjadi prioritas untuk
@@ -296,7 +321,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Toggle Tabel / Grafik
-        (function () {
+        (function() {
             const toggle = document.getElementById('togglePendapatanUsaha');
             if (!toggle) return;
 
@@ -305,7 +330,7 @@
             const viewChart = document.getElementById('view-pendapatan-chart');
 
             btns.forEach(btn => {
-                btn.addEventListener('click', function () {
+                btn.addEventListener('click', function() {
                     btns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
 
@@ -322,7 +347,7 @@
         })();
 
         // CHART Pendapatan per Usaha
-        (function () {
+        (function() {
             const canvas = document.getElementById('pendapatanUsahaChart');
             if (!canvas) return;
 
@@ -364,7 +389,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function (context) {
+                                label: function(context) {
                                     const val = context.parsed.y ?? 0;
                                     return ' Rp ' + val.toLocaleString('id-ID');
                                 }
@@ -383,7 +408,7 @@
                         y: {
                             ticks: {
                                 color: '#b8ccdf',
-                                callback: function (value) {
+                                callback: function(value) {
                                     return 'Rp ' + value.toLocaleString('id-ID');
                                 }
                             },

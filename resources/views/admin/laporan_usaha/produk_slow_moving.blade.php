@@ -1,5 +1,6 @@
 @extends('adminlte::page')
 
+
 @section('title', 'Produk Slow Moving')
 
 @section('css')
@@ -140,6 +141,9 @@
                     </div>
                 </div>
 
+                {{-- ✅ Tambah filter periode (untuk override default 30 hari) --}}
+                @include('admin.laporan_usaha.partials.filter_periode')
+
                 <div class="row mt-2">
                     <div class="form-group col-md-3 col-sm-6" style="margin-top: 4px;">
                         <button type="submit" class="btn btn-primary btn-block mb-2">
@@ -148,17 +152,24 @@
                         <a href="{{ route('admin.laporan_usaha.produk-slow-moving') }}" class="btn btn-secondary btn-block">
                             <i class="fa fa-sync-alt"></i> Reset
                         </a>
+
+                        <a href="{{ route('admin.laporan_usaha.produk-slow-moving.export', request()->query()) }}"
+                            class="btn btn-success btn-block mt-2">
+                            <i class="fa fa-file-excel"></i> Export Excel
+                        </a>
                     </div>
                 </div>
 
-                @if (!request('start_date') && !request('end_date'))
+                @if (!request('start_date') && !request('end_date') && !request('periode_type'))
                     <small style="color:#b8ccdf; opacity:.8;">
-                        * Jika tidak memilih tanggal, data otomatis memakai <strong>30 hari terakhir</strong>.
+                        * Jika tidak memilih tanggal & periode, data otomatis memakai
+                        <strong>30 hari terakhir</strong>.
                     </small>
                 @endif
             </form>
         </div>
     </div>
+
 
     {{-- 📊 RINGKASAN --}}
     <div class="row mb-3">

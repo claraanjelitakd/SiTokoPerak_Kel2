@@ -1,5 +1,6 @@
 @extends('adminlte::page')
 
+
 @section('title', 'Laporan Views Produk')
 
 @section('css')

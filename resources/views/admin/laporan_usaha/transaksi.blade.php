@@ -116,12 +116,10 @@
 @stop
 
 @section('content')
-    {{-- 🔍 FILTER: Usaha, Kategori, User, Status, Tanggal --}}
     <div class="card-modern mb-3">
         <div class="card-body">
             <form method="GET" action="{{ route('admin.laporan_usaha.transaksi') }}">
                 <div class="row">
-
                     {{-- Usaha --}}
                     <div class="form-group col-md-3 col-sm-6">
                         <label style="color:#b8ccdf;">Usaha</label>
@@ -176,21 +174,26 @@
                             @endforeach
                         </select>
                     </div>
-
                 </div>
 
                 <div class="row mt-2">
-
+                    {{-- Tanggal Mulai --}}
                     <div class="form-group col-md-3 col-sm-6">
                         <label style="color:#b8ccdf;">Tanggal Mulai</label>
                         <input type="date" name="start_date" class="form-control" value="{{ request('start_date') }}">
                     </div>
 
+                    {{-- Tanggal Akhir --}}
                     <div class="form-group col-md-3 col-sm-6">
                         <label style="color:#b8ccdf;">Tanggal Akhir</label>
                         <input type="date" name="end_date" class="form-control" value="{{ request('end_date') }}">
                     </div>
+                </div>
 
+                {{-- ✅ Tambah filter periode --}}
+                @include('admin.laporan_usaha.partials.filter_periode')
+
+                <div class="row mt-2">
                     <div class="form-group col-md-3 col-sm-6" style="margin-top: 24px;">
                         <button type="submit" class="btn btn-primary btn-block mb-2">
                             <i class="fa fa-filter"></i> Terapkan
@@ -198,12 +201,17 @@
                         <a href="{{ route('admin.laporan_usaha.transaksi') }}" class="btn btn-secondary btn-block">
                             <i class="fa fa-sync-alt"></i> Reset
                         </a>
-                    </div>
 
+                        <a href="{{ route('admin.laporan_usaha.transaksi.export', request()->query()) }}"
+                            class="btn btn-success btn-block mt-2">
+                            <i class="fa fa-file-excel"></i> Export Excel
+                        </a>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
+
 
     {{-- 📊 RINGKASAN --}}
     <div class="row mb-3">
