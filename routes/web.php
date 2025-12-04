@@ -406,7 +406,7 @@ Route::prefix('admin/laporan-usaha')
 
         // Pendapatan Usaha
         Route::get('/pendapatan-usaha', [LaporanUsahaController::class, 'pendapatanUsaha'])
-            ->name('pendapatan_usaha');
+            ->name('pendapatan-usaha');
         Route::get('/pendapatan-usaha/export', [LaporanUsahaController::class, 'exportPendapatanUsaha'])
             ->name('pendapatan-usaha.export');
 

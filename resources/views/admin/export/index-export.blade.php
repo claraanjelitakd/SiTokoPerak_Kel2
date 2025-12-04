@@ -89,7 +89,7 @@
     <div class="report-nav">
         <a href="{{ route('admin.laporan_usaha.index') }}" class="active">📌 Dashboard Laporan</a>
         <a href="{{ route('admin.laporan_usaha.transaksi') }}">📄 Semua Transaksi</a>
-        <a href="{{ route('admin.laporan_usaha.pendapatan_usaha') }}">💰 Pendapatan Per Usaha</a>
+        <a href="{{ route('admin.laporan_usaha.pendapatan-usaha') }}">💰 Pendapatan Per Usaha</a>
         <a href="{{ route('admin.laporan_usaha.produk_terlaris') }}">🔥 Produk Terlaris</a>
         <a href="{{ route('admin.laporan_usaha.produk-slow-moving') }}">🐌 Produk Slow Moving</a>
         <a href="{{ route('admin.laporan_usaha.transaksi-user') }}">👥 Transaksi Per User</a>
